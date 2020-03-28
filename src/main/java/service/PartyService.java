@@ -61,8 +61,8 @@ public class PartyService {
      * removes a party selected by id
      * @param acronym
      */
-    public void removePerty(String acronym){
-        partyRepo.deleteById(acronym);
+    public void removeParty(String acronym){
+        partyRepo.deleteByAcronym(acronym);
     }
 
     /**
