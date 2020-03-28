@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonRepo extends JpaRepository<Person, Long> {
     public Person findByCnp(Long cnp);
+    public void deleteByCnp(Long cnp);
 }

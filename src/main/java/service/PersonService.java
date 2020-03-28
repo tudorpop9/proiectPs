@@ -40,6 +40,14 @@ public class PersonService {
         personRepo.save(person);
     }
 
+    /**
+     * Removes a person from db by cnp
+     * @param cnp
+     */
+    public void removePerson(Long cnp){
+        personRepo.deleteByCnp(cnp);
+    }
+
 
 
 }
