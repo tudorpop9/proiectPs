@@ -6,7 +6,7 @@ import sun.print.resources.serviceui_it;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class Person implements Serializable {
@@ -100,6 +100,10 @@ public class Person implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public long getAge(){
+        return (System.currentTimeMillis() - this.birthDate.getTime())/31556926000L; // 1Year in millis
     }
 
     //Blood type maybe ?
