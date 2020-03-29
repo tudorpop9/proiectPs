@@ -3,7 +3,6 @@ package entity;
 import enums.ElectionType;
 
 import javax.persistence.*;
-import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -43,6 +42,26 @@ public class Election {
     public Election() {
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setElectionType(ElectionType electionType) {
+        this.electionType = electionType;
+    }
+
+    public void setChoices(List<Choice> choices) {
+        this.choices = choices;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -61,5 +80,39 @@ public class Election {
 
     public Date getEndDate() {
         return endDate;
+    }
+
+    /**
+     * Adds a voter to the list so it cannot vote again
+     * @param person
+     */
+    public void addVoter(Person person){
+        this.voters.add(person);
+    }
+
+    /**
+     * Adds voters to a list so it cannot vote again
+     * @param people
+     */
+    public void addVoter(Person[] people){
+        for(Person p: people)
+            this.addVoter(p);
+    }
+
+    /**
+     * Signals the presence of a voter the list
+     * @param p
+     * @return
+     */
+    public boolean containtsVoter(Person p){
+        return this.voters.contains(p);
+    }
+
+    /**
+     * Adds a vote choice to the list
+     * @param c
+     */
+    public void addChoice(Choice c){
+        this.choices.add(c);
     }
 }
