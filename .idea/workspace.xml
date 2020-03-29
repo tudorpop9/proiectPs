@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0da0b02-2641-4706-8558-c06205e346b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/Election.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/enums/ElectionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/CandidateChoiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/ChoiceRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/PollChoiceRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/CandidateChoiceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Choice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Person.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -97,22 +97,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="183" y="275" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1585482225052" />
-    <state width="1493" height="209" key="GridCell.Tab.0.bottom" timestamp="1585486961868">
+    <state width="1493" height="209" key="GridCell.Tab.0.bottom" timestamp="1585490102753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585486961868" />
-    <state width="1493" height="209" key="GridCell.Tab.0.center" timestamp="1585486961868">
+    <state width="1493" height="209" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585490102753" />
+    <state width="1493" height="209" key="GridCell.Tab.0.center" timestamp="1585490102753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585486961868" />
-    <state width="1493" height="209" key="GridCell.Tab.0.left" timestamp="1585486961868">
+    <state width="1493" height="209" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585490102753" />
+    <state width="1493" height="209" key="GridCell.Tab.0.left" timestamp="1585490102753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585486961868" />
-    <state width="1493" height="209" key="GridCell.Tab.0.right" timestamp="1585486961868">
+    <state width="1493" height="209" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585490102753" />
+    <state width="1493" height="209" key="GridCell.Tab.0.right" timestamp="1585490102753">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="209" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585486961868" />
+    <state width="1493" height="209" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585490102753" />
     <state x="0" y="67" key="Maven.ArtifactSearchDialog" timestamp="1584900326796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
