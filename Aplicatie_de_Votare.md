@@ -51,4 +51,16 @@ Pentru implementare am ales limbajul java impreuna cu framework-ul Spring-Boot p
 
 ## Implementare
 Am intalnit dificultati in a face Spring-Boot-ul si SpringData sa functioneze dupa ce baza de date si abordarea initilala folosea clase EntityManager oferita de Hibernate pe acelasi proiect, motiv pentru care a fost nevoie sa incep un alt proiect 'curat'.
+
+Pentru implementare am pornit de la urmatoarea diagrama UseCase:
+![UseCase](https://raw.githubusercontent.com/tudorpop9/proiectPs/master/UseCase.png)
+
+Starea curenta, simplificata, a relatiilor dintre clase se poate observa in urmatoarea diagrama:
+![ClassDiagram](https://raw.githubusercontent.com/tudorpop9/proiectPs/master/ClassDiagram.png)
+
+Partea aplicatiei organizata pe nivele si functionalitati,la momentul curent, se poate observa in urmatoarea figura:
+![ClassDiagram2](https://raw.githubusercontent.com/tudorpop9/proiectPs/master/ClassControlletDiagram.png)
+
+
+
  work in progress..
