@@ -1,11 +1,13 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@MappedSuperclass
+/**
+ * https://www.baeldung.com/hibernate-inheritance
+ */
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Choice implements Serializable {
     @Id
     @Column(length = 50)

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Person implements Serializable {
+public class Person implements Serializable, Comparable {
     @Id
     private Long cnp;
 
@@ -104,6 +104,12 @@ public class Person implements Serializable {
 
     public long getAge(){
         return (System.currentTimeMillis() - this.birthDate.getTime())/31556926000L; // 1Year in millis
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Person comp = (Person)o;
+        return this.cnp.compareTo(comp.getCnp());
     }
 
     //Blood type maybe ?
