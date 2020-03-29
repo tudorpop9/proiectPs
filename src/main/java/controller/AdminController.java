@@ -1,13 +1,11 @@
 package controller;
 
-import entity.Choice;
-import entity.Election;
-import entity.ParlimentalChoice;
-import entity.Person;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.*;
 
+import javax.servlet.http.Part;
 import java.util.List;
 
 @RestController
@@ -53,5 +51,37 @@ public class AdminController {
     public List<Choice> getAllElectionChoices(@PathVariable String electionTitle){
         return electionService.getAllChoices(electionTitle);
     }
+
+    //Party section
+    @PostMapping("/admin/party/addParty")
+    public void addParty(@RequestBody Party p){
+        partyService.addParty(p);
+    }
+
+    @PostMapping("admin/party/addPerson/{partyAcronym}/{personCnp}")
+    public void addPerson(@PathVariable String partyAcronym, @PathVariable Long personCnp){
+        Person p = personService.getPerson(personCnp);
+        Party party = partyService.getParty(partyAcronym);
+        partyService.addPerson(p, party);
+    }
+
+    // mai trebuie sa fac o metoda pentru mai multe persoane // persionService++
+
+    @PostMapping("admin/party/removeParty/{acronym}")
+    public void removeParty(@PathVariable String acronym){
+       partyService.removeParty(acronym);
+    }
+
+    @GetMapping("admin/party/allParties")
+    public List<Party> getAllParties(){
+        return partyService.getAllParties();
+    }
+
+    @GetMapping("admin/party/findParty/{acronym}")
+    public Party findParty(@PathVariable String acronym){
+        return partyService.getParty(acronym);
+    }
+
+
 
 }
