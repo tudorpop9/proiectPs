@@ -1,6 +1,7 @@
 package service;
 
 import entity.Choice;
+import entity.ParlimentalChoice;
 import entity.PollChoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -76,5 +77,24 @@ public class PollChoiceService {
         }else{
             //throw something
         }
+    }
+
+    /**
+     * Increases the number of votes of a Choice by 1
+     * @param pollChoice
+     */
+    public void increaseVotes(PollChoice pollChoice){
+        pollChoice.incrementVotes();
+        this.updatePollChoice(pollChoice);
+    }
+
+    /**
+     * Adds a bulk of votes to the Choice
+     * @param pollChoice
+     * @param newVotes
+     */
+    public void addVotesInBulk(PollChoice pollChoice, Long newVotes){
+        pollChoice.bulkVotes(newVotes);
+        this.updatePollChoice(pollChoice);
     }
 }

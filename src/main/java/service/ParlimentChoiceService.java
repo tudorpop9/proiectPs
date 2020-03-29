@@ -2,6 +2,7 @@ package service;
 
 import entity.Choice;
 import entity.ParlimentalChoice;
+import entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ChoiceRepo;
@@ -77,6 +78,50 @@ public class ParlimentChoiceService {
         }else{
             //throw something
         }
+    }
+
+    /**
+     * Adds a person to a parlimentalChoice's list of proposed people
+     * @param person
+     * @param parlimentalChoice
+     */
+    public void addProposedPerson(Person person, ParlimentalChoice parlimentalChoice){
+        if(choiceRepo.existsByTitle(parlimentalChoice.getTitle())){
+            parlimentalChoice.addProposedPerson(person);
+            choiceRepo.save(parlimentalChoice);
+        }else{
+            //throw something
+        }
+    }
+
+    /**
+     * Adds more people to a parlimentalChoice's list of proposed people
+     * @param people
+     * @param parlimentalChoice
+     */
+    public void addProposedPeople(Person[] people, ParlimentalChoice parlimentalChoice){
+        for(Person p : people){
+            this.addProposedPerson(p, parlimentalChoice);
+        }
+    }
+
+    /**
+     * Increases the number of votes of a Choice by 1
+     * @param parlimentalChoice
+     */
+    public void increaseVotes(ParlimentalChoice parlimentalChoice){
+        parlimentalChoice.incrementVotes();
+        this.updateParlimentalChoice(parlimentalChoice);
+    }
+
+    /**
+     * Adds a bulk of votes to the Choice
+     * @param parlimentalChoice
+     * @param newVotes
+     */
+    public void addVotesInBulk(ParlimentalChoice parlimentalChoice, Long newVotes){
+        parlimentalChoice.bulkVotes(newVotes);
+        this.updateParlimentalChoice(parlimentalChoice);
     }
 
 }

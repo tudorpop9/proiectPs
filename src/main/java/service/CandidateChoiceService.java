@@ -82,6 +82,25 @@ public class CandidateChoiceService {
         }
     }
 
+    /**
+     * Increases the number of votes of a Choice by 1
+     * @param candidateChoice
+     */
+    public void increaseVotes(CandidateChoice candidateChoice){
+        candidateChoice.incrementVotes();
+        this.updateCandidateChoice(candidateChoice);
+    }
+
+    /**
+     * Adds a bulk of votes to the Choice
+     * @param candidateChoice
+     * @param newVotes
+     */
+    public void addVotesInBulk(CandidateChoice candidateChoice, Long newVotes){
+        candidateChoice.bulkVotes(newVotes);
+        this.updateCandidateChoice(candidateChoice);
+    }
+
 
 
 }

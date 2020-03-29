@@ -36,15 +36,39 @@ public class ParlimentalChoice extends Choice {
         return party;
     }
 
+    public void setParty(Party party) {
+        this.party = party;
+    }
+
     public String getGovernmentProgram() {
         return governmentProgram;
+    }
+
+    public void setGovernmentProgram(String governmentProgram) {
+        this.governmentProgram = governmentProgram;
     }
 
     public List<Person> getProposedPeople() {
         return proposedPeople;
     }
 
+    public void setProposedPeople(List<Person> proposedPeople) {
+        this.proposedPeople = proposedPeople;
+    }
+
     public ParlimentalType getParlimentalType() {
         return parlimentalType;
+    }
+
+    public void setParlimentalType(ParlimentalType parlimentalType) {
+        this.parlimentalType = parlimentalType;
+    }
+
+    /**
+     * Adds a proposed person to the list
+     * @param person
+     */
+    public void addProposedPerson(Person person){
+        this.proposedPeople.add(person);
     }
 }
