@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ChoiceRepo;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +20,9 @@ public class CandidateChoiceService {
      * @param candidateChoice
      */
     public void addCandidateChoice(CandidateChoice candidateChoice){
-        if(candidateChoice.getPerson().getAge() > 35L){
+        if(candidateChoice.getPerson().getAge() > 35L &&
+                !choiceRepo.existsByTitle(candidateChoice.getTitle())){
+
             choiceRepo.save(candidateChoice);
         }else{
             /// throw something
@@ -33,7 +34,8 @@ public class CandidateChoiceService {
      * @param title
      */
     public void deleteChoiceByTitle(String title){
-        if(choiceRepo.existsByTitle(title)){
+        Choice choice = choiceRepo.findByTitle(title);
+        if(choice instanceof CandidateChoice){
             choiceRepo.deleteByTitle(title);
         }else{
             ///throw something
@@ -64,6 +66,20 @@ public class CandidateChoiceService {
             //throw something
         }
         return null;
+    }
+
+    /**
+     * Updates a candidateChoice, but only if it already exists in db
+     * @param candidateChoice
+     */
+
+    public void updateCandidateChoice(CandidateChoice candidateChoice){
+        Choice candidate = choiceRepo.findByTitle(candidateChoice.getTitle());
+        if(candidate instanceof CandidateChoice){
+            choiceRepo.save(candidateChoice);
+        }else{
+            //throw something
+        }
     }
 
 
