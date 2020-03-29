@@ -23,6 +23,8 @@ public class CandidateChoiceService {
     public void addCandidateChoice(CandidateChoice candidateChoice){
         if(candidateChoice.getPerson().getAge() > 35L){
             choiceRepo.save(candidateChoice);
+        }else{
+            /// throw something
         }
     }
 
@@ -33,6 +35,8 @@ public class CandidateChoiceService {
     public void deleteChoiceByTitle(String title){
         if(choiceRepo.existsByTitle(title)){
             choiceRepo.deleteByTitle(title);
+        }else{
+            ///throw something
         }
     }
 
@@ -45,6 +49,21 @@ public class CandidateChoiceService {
         return choiceRepo.findAll().stream()
                                     .filter(x -> x instanceof CandidateChoice)
                                     .collect(Collectors.toList());
+    }
+
+    /**
+     * returns a CandidateChoice found by title
+     * @param title
+     * @return
+     */
+    public CandidateChoice getCandidateChoice(String title){
+        Choice candidate = choiceRepo.findByTitle(title);
+        if(candidate instanceof CandidateChoice){
+            return (CandidateChoice) candidate;
+        }else{
+            //throw something
+        }
+        return null;
     }
 
 
