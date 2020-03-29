@@ -1,5 +1,6 @@
 package service;
 
+import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
 import entity.Choice;
 import entity.Election;
 import entity.ParlimentalChoice;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ElectionRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +40,27 @@ public class ElectionService {
     }
 
     /**
+     * Returns all existing/ongoing elections
+     * @return
+     */
+    public List<Election> getAllElecions(){
+        ArrayList<Election> elections = new ArrayList<>();
+        electionRepo.findAll().forEach(elections::add);
+        return elections;
+    }
+    /**
+     * Updates an election if it exists in db
+     * @param election
+     */
+    public void updateElection(Election election){
+        if(electionRepo.existsByTitle(election.getTitle())){
+            electionRepo.save(election);
+        }else{
+            //throw
+        }
+    }
+
+    /**
      * Deletes an election by its title
      * @param title
      */
@@ -59,6 +82,12 @@ public class ElectionService {
         return this.getElection(title).getChoices();
     }
 
+    /**
+     * Assigns a vote and adds the voter to the list so it cannot vote again
+     * @param electionTitle
+     * @param p
+     * @param c
+     */
     public void registerAVote(String electionTitle, Person p, Choice c){
         Election e = this.getElection(electionTitle);
         if(!e.containtsVoter(p) && e.getChoices().contains(c)){
@@ -68,6 +97,19 @@ public class ElectionService {
         }else{
             //throw
         }
+    }
+
+    /**
+     * Adds a choice to the corresponding list
+     * @param electionTitle
+     * @param c
+     */
+    public void addChoice(String electionTitle, Choice c){
+        Election e = this.getElection(electionTitle);
+
+        //Trebuie facuta validarea tipurilor
+        e.addChoice(c);
+        this.updateElection(e);
     }
 
 

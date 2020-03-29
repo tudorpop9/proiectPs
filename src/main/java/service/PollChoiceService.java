@@ -67,6 +67,15 @@ public class PollChoiceService {
     }
 
     /**
+     * returns ANY choice found by title
+     * @param title
+     * @return
+     */
+    public Choice getAnyChoice(String title){
+        return choiceRepo.findByTitle(title);
+    }
+
+    /**
      * Updates a pollChoice, but only if it already exists in db
      * @param pollChoice
      */

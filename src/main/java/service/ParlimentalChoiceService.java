@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ParlimentChoiceService {
+public class ParlimentalChoiceService {
     @Autowired
     private ChoiceRepo choiceRepo;
 
