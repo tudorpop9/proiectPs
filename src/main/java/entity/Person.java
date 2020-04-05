@@ -25,22 +25,20 @@ public class Person implements Serializable, Comparable {
     @Column
     private String address;
 
-    @Column
-    private String email;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "acronym")
     private Party party;
 
 
-    public Person(Long cnp, String lastName, String firstName, Date birthDate, String address, String email) {
+    public Person(Long cnp, String lastName, String firstName, Date birthDate, String address) {
         this.cnp = cnp;
         this.lastName = lastName;
         this.firstName = firstName;
         this.birthDate = birthDate;
         this.address = address;
         this.party = null;
-        this.email = email;
+
     }
 
     public Person() {
@@ -92,14 +90,6 @@ public class Person implements Serializable, Comparable {
 
     public void setParty(Party party) {
         this.party = party;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public long getAge(){
