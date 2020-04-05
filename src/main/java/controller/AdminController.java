@@ -22,6 +22,7 @@ public class AdminController {
     private PartyService partyService;
     @Autowired
     private PersonService personService;
+    @Autowired
 
     //Election section
     @GetMapping("/admin/allElections")
@@ -80,6 +81,24 @@ public class AdminController {
     @GetMapping("admin/party/findParty/{acronym}")
     public Party findParty(@PathVariable String acronym){
         return partyService.getParty(acronym);
+    }
+
+    //CandidateChoice
+    @PostMapping("admin/Choice/CandidateChoice/add")
+    public void createCandidateChoice(@RequestBody CandidateChoice candidateChoice){
+        candidateChoiceService.addCandidateChoice(candidateChoice);
+    }
+
+    //ParlimentalChoice
+    @PostMapping("admin/Choice/ParlimentalChoice/add")
+    public void createCandidateChoice(@RequestBody ParlimentalChoice parlimentalChoice){
+        parlimentalChoiceService.addParlimentalChoice(parlimentalChoice);
+    }
+
+    //PollChoice
+    @PostMapping("admin/Choice/PollChoice/add")
+    public void createCandidateChoice(@RequestBody PollChoice pollChoice){
+        pollChoiceService.addPollChoice(pollChoice);
     }
 
 
