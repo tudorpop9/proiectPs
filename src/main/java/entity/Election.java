@@ -2,6 +2,7 @@ package entity;
 
 import enums.ElectionType;
 
+import javax.mail.MessagingException;
 import javax.persistence.*;
 import java.util.*;
 
@@ -27,6 +28,8 @@ public class Election {
     @Column
     private Date endDate;
 
+    //It is ignored during db creation and stuff
+    @Transient
     private List<ElectionObserver> observers;
 
     public Election(String title, ElectionType electionType, List<Choice> choices, Date startDate, Date endDate) {
@@ -138,7 +141,7 @@ public class Election {
      * Should notify the population and start the election
      * @param msg
      */
-    public void openPolls(String msg){
+    public void openPolls(String msg) throws MessagingException {
         for(ElectionObserver obs : observers){
             obs.notify(msg);
         }

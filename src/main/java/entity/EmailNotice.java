@@ -3,11 +3,17 @@ package entity;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import java.util.List;
 import java.util.Properties;
 
 public class EmailNotice implements ElectionObserver{
+
+
 
     private static final String SUBJECT = "ElectionNoReply";
     private static final String EMAIL = "VoteAppNotification@gmail.com";
