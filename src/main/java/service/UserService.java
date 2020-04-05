@@ -38,7 +38,7 @@ public class UserService {
      * @return
      */
     public User getUserByCnp(Long cnp){
-        return userRepo.findByPerson_cnp(cnp);
+        return userRepo.findByPerson(personRepo.findByCnp(cnp));
     }
 
 
@@ -105,6 +105,14 @@ public class UserService {
      */
     public void addUser(User user){
         if(user.getEmail().matches(emailRegex) && !userRepo.existsByPerson(user.getPerson()) && user != null){
+            userRepo.save(user);
+        }else{
+            //throw
+        }
+    }
+
+    public void updateUser(User user){
+        if(userRepo.existsByPerson(user.getPerson())){
             userRepo.save(user);
         }else{
             //throw

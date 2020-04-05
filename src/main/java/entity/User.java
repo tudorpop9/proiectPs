@@ -7,8 +7,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@IdClass(User.class)
 public class User implements Serializable{
+
     @Id
+    private Long cnp;
+
+    @MapsId
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Person person;
 

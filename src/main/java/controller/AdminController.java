@@ -3,6 +3,7 @@ package controller;
 import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import repository.UserRepo;
 import service.*;
 
 import javax.servlet.http.Part;
@@ -10,6 +11,8 @@ import java.util.List;
 
 @RestController
 public class AdminController {
+    @Autowired
+    private UserService userService;
     @Autowired
     private ElectionService electionService;
     @Autowired
@@ -22,7 +25,12 @@ public class AdminController {
     private PartyService partyService;
     @Autowired
     private PersonService personService;
-    @Autowired
+
+    private EmailNotice getMailNotice(){
+        EmailNotice emailNotice = new EmailNotice();
+        emailNotice.setUsers(userService.getAllUsers());
+        return emailNotice;
+    }
 
     //Election section
     @GetMapping("/admin/allElections")
@@ -39,6 +47,7 @@ public class AdminController {
 
     @PostMapping("/admin/election/createElection")
     public void createElection(@RequestBody Election e){
+        e.addObserver(getMailNotice());
         electionService.addElection(e);
     }
 
