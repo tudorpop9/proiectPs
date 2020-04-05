@@ -3,10 +3,7 @@ package entity;
 import enums.ElectionType;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 @Entity
 public class Election {
@@ -30,6 +27,8 @@ public class Election {
     @Column
     private Date endDate;
 
+    private List<ElectionObserver> observers;
+
     public Election(String title, ElectionType electionType, List<Choice> choices, Date startDate, Date endDate) {
         this.title = title;
         this.electionType = electionType;
@@ -37,6 +36,7 @@ public class Election {
         this.startDate = startDate;
         this.endDate = endDate;
         this.voters = new TreeSet<>();
+        this.observers = new ArrayList<>();
     }
 
     public Election() {
@@ -115,4 +115,34 @@ public class Election {
     public void addChoice(Choice c){
         this.choices.add(c);
     }
+
+    /**
+     * Adds an observer to the election, different observers should notify the population
+     * by different means (ex text message, e-mail)
+     * @param observer
+     */
+    public void addObserver(ElectionObserver observer){
+        this.observers.add(observer);
+    }
+
+    /**
+     * Removes an observer from the election, different observers should notify the population
+     * by different means (ex text message, e-mail)
+     * @param observer
+     */
+    public void removeObserver(ElectionObserver observer){
+        this.observers.remove(observer);
+    }
+
+    /**
+     * Should notify the population and start the election
+     * @param msg
+     */
+    public void openPolls(String msg){
+        for(ElectionObserver obs : observers){
+            obs.notify(msg);
+        }
+    }
+
+
 }
