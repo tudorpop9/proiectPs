@@ -61,6 +61,14 @@ Starea curenta, simplificata, a relatiilor dintre clase se poate observa in urma
 Partea aplicatiei organizata pe nivele si functionalitati,la momentul curent, se poate observa in urmatoarea figura:
 ![ClassDiagram2](https://raw.githubusercontent.com/tudorpop9/proiectPs/master/ClassControlletDiagram.png)
 
+### Desing Patters
 
+#### Observer Design Pattern
+Acest design pattern este unul de tip comportamental avand la baza interactiunea dintre un emitator si unul sau mai mult receptori. Aceste componente se regasesc sub denumirea de Observable si Observes. Obiectele de tip observable notifica receptorii la schimbarea, sau accesarea unor date de interes.
+
+Integrarea acestul pattern in aplicatia de votare consta in crearea unei clase/seturi de clase care va trimite o forma de notificare la toti userii din baza de date in momentul "deschiderii urnelor" unor alegeri. 
+Momentan aplicatia contine suport pentru trimiterea unui e-mail la toti userii care au o adresa de e-mail salvata. Aceasi clasa poate fi folosita si pentru informarea cetatenilor la finalul alegerilor. Acest lucru s-a realizat folosind dependinta JavaMail.
+
+Clasa "Election" suporta detinerea obiectelor ce implementeaza "ElectionObserver". In acest mod se pot crea diferite tipuri de Observeri care pot notifica populatia prin sms de exemplu. 
 
  work in progress..
