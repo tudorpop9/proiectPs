@@ -9,14 +9,14 @@ import javax.jws.soap.SOAPBinding;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
-    public Boolean existsByPerson(Person p);
+    public Boolean existsByCnp(Long cnp);
     //public Boolean existsByPerson_cnp(Long cnp);
 
    // public User findByPerson_cnp(Long cnp);
-    public User findByPerson(Person p);
+    public User findByCnp(Long cnp);
     public User findByEmail(String email);
     public User findByphoneNumber(String email);
-    public void deleteByPerson(Person p);
+    public void deleteByCnp(Long cnp);
     public void deleteByEmail(String email);
     public void deleteByphoneNumber(String email);
 }

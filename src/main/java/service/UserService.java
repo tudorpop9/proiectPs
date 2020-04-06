@@ -38,7 +38,7 @@ public class UserService {
      * @return
      */
     public User getUserByCnp(Long cnp){
-        return userRepo.findByPerson(personRepo.findByCnp(cnp));
+        return userRepo.findByCnp(cnp);
     }
 
 
@@ -79,7 +79,7 @@ public class UserService {
         }
         usr.setRole(RoleType.MEMBER);
 
-        if(!userRepo.existsByPerson(usr.getPerson())){
+        if(!userRepo.existsByCnp(usr.getCnp())){
             //throw
         }
         userRepo.save(usr);
@@ -92,7 +92,7 @@ public class UserService {
     public void downgradeToCitizen(User user){
         user.setRole(RoleType.CITIZEN);
         user.setPassword(null);
-        if(userRepo.existsByPerson(user.getPerson())){
+        if(userRepo.existsByCnp(user.getCnp())){
             userRepo.save(user);
         }else{
             //throw
@@ -104,7 +104,7 @@ public class UserService {
      * @param user
      */
     public void addUser(User user){
-        if(user.getEmail().matches(emailRegex) && !userRepo.existsByPerson(user.getPerson()) && user != null){
+        if(user.getEmail().matches(emailRegex) && !userRepo.existsByCnp(user.getCnp()) && user != null){
             userRepo.save(user);
         }else{
             //throw
@@ -112,7 +112,7 @@ public class UserService {
     }
 
     public void updateUser(User user){
-        if(userRepo.existsByPerson(user.getPerson())){
+        if(userRepo.existsByCnp(user.getCnp())){
             userRepo.save(user);
         }else{
             //throw

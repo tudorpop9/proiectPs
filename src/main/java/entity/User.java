@@ -47,6 +47,14 @@ public class User implements Serializable{
     public User() {
     }
 
+    public Long getCnp() {
+        return cnp;
+    }
+
+    public void setCnp(Long cnp) {
+        this.cnp = cnp;
+    }
+
     public Person getPerson() {
         return person;
     }

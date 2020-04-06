@@ -24,6 +24,15 @@ public class CitizenControllor {
     @Autowired
     private ElectionService electionService;
 
+    /**
+     * Selectam poll-ulul curent folosind titlul acestuia, similar varianta de votare
+     * persoana care voteaza dupa cnp
+     * Apelam registerAVote care incrementeaza voturile variantei si pune persoana in lista votantiilor
+     * pentru a nu mai vota inca o data
+     * @param electionTitle
+     * @param personCnp
+     * @param choiceTitle
+     */
     @PostMapping("/citizen/vote/{electionTitle}/{personCnp}/{choiceTitle}")
     public void vote(@PathVariable String electionTitle, @PathVariable Long personCnp, @PathVariable String choiceTitle){
         Person p = personService.getPerson(personCnp);
@@ -31,6 +40,13 @@ public class CitizenControllor {
         electionService.registerAVote(electionTitle, p, c);
     }
 
+    /**
+     * Introducand field-uri suplimentare, un cetatean poate deveni membru pentru a accesa alte facilitati
+     * @param cnp
+     * @param mail
+     * @param pwd
+     * @param phoneNr
+     */
     @PostMapping("/citizen/makeAccount/{cnp}/{mail}/{pwd}/{phoneNr}")
     public void makeAccount(@PathVariable Long cnp, @PathVariable String mail, @PathVariable String pwd, @PathVariable String phoneNr){
         User user =  userService.getUserByCnp(cnp);
