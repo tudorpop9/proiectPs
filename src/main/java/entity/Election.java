@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class Election {
+public abstract class Election {
     @Id
     @Column(length = 50)
     private String title;
@@ -147,5 +147,11 @@ public class Election {
         }
     }
 
+    /**
+     * Returns the current status of the election
+     * It could be used to get partial results but also final
+     * @return
+     */
+    public abstract String getReport();
 
 }
