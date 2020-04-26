@@ -7,6 +7,9 @@ import sun.print.resources.serviceui_it;
 import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
@@ -93,8 +96,16 @@ public class Person implements Serializable, Comparable {
         this.party = party;
     }
 
+    /**
+     * Fancy stuff here
+     * https://stackoverflow.com/questions/21242110/convert-java-util-date-to-java-time-localdate
+     * @return
+     */
     public long getAge(){
-        return (System.currentTimeMillis() - this.birthDate.getTime())/31556926000L; // 1Year in millis
+        LocalDate bDay = this.birthDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate today = LocalDate.now(ZoneId.systemDefault());
+
+        return Period.between(bDay, today).getYears();
     }
 
     @Override

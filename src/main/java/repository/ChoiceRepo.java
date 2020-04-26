@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ChoiceRepo extends JpaRepository<Choice, String> {
-    public PollChoice findByTitle(String title);
+    public Choice findByTitle(String title);
     public void deleteByTitle(String title);
     public boolean existsByTitle(String title);
 

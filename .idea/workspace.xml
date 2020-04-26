@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0da0b02-2641-4706-8558-c06205e346b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/PersonRequirementsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exception/WrongObjTypeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/serviceTest/CandidateChoiceServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CandidateChoiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CandidateChoiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CandidateChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/CandidateChoice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Party.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Party.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/CandidateChoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/CandidateChoiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/start/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/start/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Factory/ElectionFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Factory/ElectionFactory$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Factory/ElectionFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Factory/ElectionFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MemberController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/CandidateElection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/ParlimentaryElection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/ParlimentaryElection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/ChoiceRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/ChoiceRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/CandidateChoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/CandidateChoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Party.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Party.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/entity/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/entity/SimplePoll.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/SimplePoll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/ElectionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ElectionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/start/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/start/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/PresidentialElection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/PresidentialElection.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +56,7 @@
       <recent name="Party" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CandidateChoiceServiceTest">
     <configuration name="Standard" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="start.App" />
       <module name="ProiectPS" />
@@ -73,6 +64,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CandidateChoiceServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProiectPS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serviceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serviceTest" />
+      <option name="MAIN_CLASS_NAME" value="serviceTest.CandidateChoiceServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CandidateChoiceServiceTest.addCandidateChoiceTestAgeUnder35" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProiectPS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="serviceTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="serviceTest" />
+      <option name="MAIN_CLASS_NAME" value="serviceTest.CandidateChoiceServiceTest" />
+      <option name="METHOD_NAME" value="addCandidateChoiceTestAgeUnder35" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Standard" />
+      <item itemvalue="JUnit.CandidateChoiceServiceTest" />
+      <item itemvalue="JUnit.CandidateChoiceServiceTest.addCandidateChoiceTestAgeUnder35" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CandidateChoiceServiceTest" />
+        <item itemvalue="JUnit.CandidateChoiceServiceTest.addCandidateChoiceTestAgeUnder35" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -124,26 +157,42 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="183" y="275" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1586076826911" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1587931747718">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1587936461636">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587931747718" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1587917177115">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587936461636" />
+    <state width="1493" height="214" key="GridCell.Tab.0.bottom" timestamp="1587938176144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587917177115" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1587917177115">
+    <state width="1493" height="214" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587938176144" />
+    <state width="1493" height="214" key="GridCell.Tab.0.center" timestamp="1587938176144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587917177115" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1587917177115">
+    <state width="1493" height="214" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587938176144" />
+    <state width="1493" height="214" key="GridCell.Tab.0.left" timestamp="1587938176144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587917177115" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1587917177115">
+    <state width="1493" height="214" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587938176144" />
+    <state width="1493" height="214" key="GridCell.Tab.0.right" timestamp="1587938176144">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587917177115" />
+    <state width="1493" height="214" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587938176144" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1587936644610">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587936644610" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1587936644610">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1587936644610" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1587936644610">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1587936644610" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1587936644610">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1587936644610" />
     <state x="0" y="67" key="Maven.ArtifactSearchDialog" timestamp="1584900326796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -168,5 +217,16 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="46" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1586100663849" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/service/CandidateChoiceService.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
