@@ -2,6 +2,7 @@ package controller;
 
 import entity.*;
 import enums.ElectionType;
+import exception.PersonRequirementsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import repository.UserRepo;
@@ -91,7 +92,11 @@ public class AdminController {
     //CandidateChoice
     @PostMapping("admin/Choice/CandidateChoice/add")
     public void createCandidateChoice(@RequestBody CandidateChoice candidateChoice){
-        candidateChoiceService.addCandidateChoice(candidateChoice);
+        try {
+            candidateChoiceService.addCandidateChoice(candidateChoice);
+        } catch (PersonRequirementsException e) {
+            e.printStackTrace();
+        }
     }
 
     //ParlimentalChoice

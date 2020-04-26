@@ -4,6 +4,7 @@ package entity;
 
 import sun.print.resources.serviceui_it;
 
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -100,6 +101,17 @@ public class Person implements Serializable, Comparable {
     public int compareTo(Object o) {
         Person comp = (Person)o;
         return this.cnp.compareTo(comp.getCnp());
+    }
+
+    @Override
+    public String toString() {
+        return lastName + " " + firstName;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Person p = (Person) obj;
+        return this.cnp.equals(p.getCnp());
     }
 
     //Blood type maybe ?

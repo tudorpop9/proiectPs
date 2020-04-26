@@ -2,6 +2,8 @@ package service;
 
 import entity.CandidateChoice;
 import entity.Choice;
+import exception.PersonRequirementsException;
+import exception.WrongObjTypeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ChoiceRepo;
@@ -19,13 +21,13 @@ public class CandidateChoiceService {
      * Adds a candidate choice to the db
      * @param candidateChoice
      */
-    public void addCandidateChoice(CandidateChoice candidateChoice){
+    public void addCandidateChoice(CandidateChoice candidateChoice) throws PersonRequirementsException {
         if(candidateChoice.getPerson().getAge() > 35L &&
                 !choiceRepo.existsByTitle(candidateChoice.getTitle())){
 
             choiceRepo.save(candidateChoice);
         }else{
-            /// throw something
+            throw new PersonRequirementsException("Age must be over 35");
         }
     }
 
@@ -33,12 +35,12 @@ public class CandidateChoiceService {
      * Deletes a Choice located by its title in db
      * @param title
      */
-    public void deleteChoiceByTitle(String title){
+    public void deleteChoiceByTitle(String title) throws WrongObjTypeException {
         Choice choice = choiceRepo.findByTitle(title);
         if(choice instanceof CandidateChoice){
             choiceRepo.deleteByTitle(title);
         }else{
-            ///throw something
+            throw new WrongObjTypeException(title + " is not a CandidateChoice");
         }
     }
 
@@ -58,14 +60,13 @@ public class CandidateChoiceService {
      * @param title
      * @return
      */
-    public CandidateChoice getCandidateChoice(String title){
+    public CandidateChoice getCandidateChoice(String title) throws WrongObjTypeException {
         Choice candidate = choiceRepo.findByTitle(title);
         if(candidate instanceof CandidateChoice){
             return (CandidateChoice) candidate;
         }else{
-            //throw something
+            throw new WrongObjTypeException(title + " is not a CandidateChoice");
         }
-        return null;
     }
 
     /**
@@ -73,12 +74,12 @@ public class CandidateChoiceService {
      * @param candidateChoice
      */
 
-    public void updateCandidateChoice(CandidateChoice candidateChoice){
+    public void updateCandidateChoice(CandidateChoice candidateChoice) throws WrongObjTypeException {
         Choice candidate = choiceRepo.findByTitle(candidateChoice.getTitle());
         if(candidate instanceof CandidateChoice){
             choiceRepo.save(candidateChoice);
         }else{
-            //throw something
+            throw new WrongObjTypeException(candidateChoice.getTitle() + " is not a CandidateChoice");
         }
     }
 
@@ -86,7 +87,7 @@ public class CandidateChoiceService {
      * Increases the number of votes of a Choice by 1
      * @param candidateChoice
      */
-    public void increaseVotes(CandidateChoice candidateChoice){
+    public void increaseVotes(CandidateChoice candidateChoice) throws WrongObjTypeException {
         candidateChoice.incrementVotes();
         this.updateCandidateChoice(candidateChoice);
     }
@@ -96,7 +97,7 @@ public class CandidateChoiceService {
      * @param candidateChoice
      * @param newVotes
      */
-    public void addVotesInBulk(CandidateChoice candidateChoice, Long newVotes){
+    public void addVotesInBulk(CandidateChoice candidateChoice, Long newVotes) throws WrongObjTypeException {
         candidateChoice.bulkVotes(newVotes);
         this.updateCandidateChoice(candidateChoice);
     }

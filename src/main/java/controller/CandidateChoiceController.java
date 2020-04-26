@@ -2,6 +2,8 @@ package controller;
 
 import entity.CandidateChoice;
 import entity.Choice;
+import exception.PersonRequirementsException;
+import exception.WrongObjTypeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.CandidateChoiceService;
@@ -21,12 +23,20 @@ public class CandidateChoiceController {
 
     @PostMapping("CandidateChoice/addCandidateChoice")
     public void addCandidateChoice(@RequestBody CandidateChoice candidate){
-        service.addCandidateChoice(candidate);
+        try {
+            service.addCandidateChoice(candidate);
+        } catch (PersonRequirementsException e) {
+            e.printStackTrace();
+        }
     }
 
     @PostMapping("CandidateChoice/deleteByTitle/{title}")
     public void deleteByTitle(@PathVariable String title){
-        service.deleteChoiceByTitle(title.replace("_"," "));
+        try {
+            service.deleteChoiceByTitle(title.replace("_"," "));
+        } catch (WrongObjTypeException e) {
+            e.printStackTrace();
+        }
     }
 
 }

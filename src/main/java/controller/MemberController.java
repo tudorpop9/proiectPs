@@ -4,6 +4,7 @@ import entity.Choice;
 import entity.Election;
 import entity.Person;
 import entity.User;
+import enums.ElectionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.ElectionService;
@@ -11,6 +12,7 @@ import service.PersonService;
 import service.PollChoiceService;
 import service.UserService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -52,11 +54,14 @@ public class MemberController {
 
     /**
      * Member-ul poate crea un poll
-     * @param e
+     * @param title
+     * @param choices
+     * @param startDate
+     * @param endDate
      */
-    @PostMapping("/member/poll/createPoll")
-    public void createElection(@RequestBody Election e){
-        electionService.addElection(e);
+    @PostMapping("/member/poll/create/{electionTitle}/{choiceList}/{start}/{date}")
+    public void createElection(@PathVariable String title, @PathVariable List<Choice> choices, @PathVariable Date startDate, @PathVariable Date endDate){
+        electionService.addElection(title, ElectionType.POLL, choices, startDate, endDate);
     }
 
     /**
