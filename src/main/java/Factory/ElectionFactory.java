@@ -13,8 +13,10 @@ public class ElectionFactory {
 
         switch (electionType){
             case MAYORAL:
+                e = new MayoralElection(title, electionType, choices, startDate, endDate);
+                break;
             case PRESIDENTIAL:
-                e = new CandidateElection(title, electionType, choices, startDate, endDate);
+                e = new PresidentialElection(title, electionType, choices, startDate, endDate);
                 break;
             case PARLIMENTARY:
                 e = new ParlimentaryElection(title, electionType, choices, startDate, endDate);

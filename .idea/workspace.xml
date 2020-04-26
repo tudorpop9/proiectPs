@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0da0b02-2641-4706-8558-c06205e346b3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Factory/ElectionFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/CandidateElection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/ParlimentaryElection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/SimplePoll.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/MayoralElection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/PresidentialElection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/Election.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/Election.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Factory/ElectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Factory/ElectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/CandidateElection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/ParlimentaryElection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/ParlimentaryElection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/SimplePoll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/SimplePoll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/VoteAppServer.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/CitizenControllor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CitizenControllor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/Election.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/Election.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/factory/ChoiceFactory$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/factory/ChoiceFactory.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,20 +35,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1ZUfM18G9GEHMSfCfC600qv6vEq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -58,9 +58,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Standard" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="start.App" />
-      <module name="VoteAppServer" />
+      <module name="ProiectPS" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,20 +89,25 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Project_Structure" timestamp="1585510536231">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1585510536231" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584900732932">
+    <state x="485" y="71" key="#Unnamed" timestamp="1587908633292">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584900732932" />
-    <state x="197" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1587850146968">
+    <state x="485" y="71" key="#Unnamed/0.0.1536.824@0.0.1536.824" timestamp="1587908633292" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587908900800">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="197" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587850146968" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1587908900800" />
+    <state x="197" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1587909855864">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="197" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1587909855864" />
     <state x="498" y="196" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1584900731148">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -115,22 +120,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586101083989" />
-    <state width="724" height="210" key="GridCell.Tab.0.bottom" timestamp="1586202864587">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1587908683686">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586202864587" />
-    <state width="724" height="210" key="GridCell.Tab.0.center" timestamp="1586202864587">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587908683686" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1587908683686">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586202864587" />
-    <state width="724" height="210" key="GridCell.Tab.0.left" timestamp="1586202864587">
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587908683686" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1587908683686">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586202864587" />
-    <state width="724" height="210" key="GridCell.Tab.0.right" timestamp="1586202864587">
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587908683686" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1587908683686">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="724" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586202864587" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587908683686" />
     <state x="0" y="67" key="Maven.ArtifactSearchDialog" timestamp="1584900326796">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -139,10 +144,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="287" y="110" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585499782940" />
-    <state x="762" y="249" key="com.intellij.ide.util.TipDialog" timestamp="1586192428882">
+    <state x="762" y="249" key="com.intellij.ide.util.TipDialog" timestamp="1587908568660">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="762" y="249" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586192428882" />
+    <state x="762" y="249" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587908568660" />
     <state x="418" y="121" key="new project wizard" timestamp="1585751546080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
