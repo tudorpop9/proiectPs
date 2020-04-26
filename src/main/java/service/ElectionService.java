@@ -1,30 +1,46 @@
 package service;
 
+import Factory.ElectionFactory;
 import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
-import entity.Choice;
-import entity.Election;
-import entity.ParlimentalChoice;
-import entity.Person;
+import entity.*;
+import enums.ElectionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ElectionRepo;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class ElectionService {
     @Autowired
-    ElectionRepo electionRepo;
+    private ElectionRepo electionRepo;
+    @Autowired
+    private UserService userService;
+
+    private  static ElectionFactory electionFactory = new ElectionFactory();
+
+    private EmailNotice getMailNotice(){
+        EmailNotice emailNotice = new EmailNotice();
+        emailNotice.setUsers(userService.getAllUsers());
+        return emailNotice;
+    }
 
     /**
-     * Adds/Creates an election
-     * @param election
+     * Adds/Creates an election based on electionType
+     * @param title
+     * @param electionType
+     * @param choices
+     * @param startDate
+     * @param endDate
      */
-    public void addElection(Election election){
-        if(!electionRepo.existsByTitle(election.getTitle())){
-            electionRepo.save(election);
+    public void addElection(String title, ElectionType electionType, List<Choice> choices, Date startDate, Date endDate){
+        if(!electionRepo.existsByTitle(title)){
+            Election e = electionFactory.createElection(title, electionType, choices, startDate, endDate);
+            e.addObserver(getMailNotice());
+            electionRepo.save(e);
         }else{
             //throw..
         }

@@ -1,12 +1,14 @@
 package controller;
 
 import entity.*;
+import enums.ElectionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import repository.UserRepo;
 import service.*;
 
 import javax.servlet.http.Part;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,11 +28,6 @@ public class AdminController {
     @Autowired
     private PersonService personService;
 
-    private EmailNotice getMailNotice(){
-        EmailNotice emailNotice = new EmailNotice();
-        emailNotice.setUsers(userService.getAllUsers());
-        return emailNotice;
-    }
 
     //Election section
     @GetMapping("/admin/allElections")
@@ -45,10 +42,9 @@ public class AdminController {
         electionService.registerAVote(electionTitle, p, c);
     }
 
-    @PostMapping("/admin/election/createElection")
-    public void createElection(@RequestBody Election e){
-        e.addObserver(getMailNotice());
-        electionService.addElection(e);
+    @PostMapping("/admin/election/createElection/{electionTitle}/{type}/{choiceList}/{start}/{date}")
+    public void createElection(@PathVariable String title,@PathVariable ElectionType electionType,@PathVariable List<Choice> choices,@PathVariable Date startDate,@PathVariable Date endDate){
+        electionService.addElection(title, electionType, choices, startDate, endDate);
     }
 
     @PostMapping("/admin/election/addChoice/{electionTitle]/{choiceTitle}")

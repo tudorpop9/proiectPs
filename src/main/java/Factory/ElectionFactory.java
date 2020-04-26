@@ -8,6 +8,7 @@ import java.util.List;
 
 public class ElectionFactory {
 
+
     public Election createElection(String title, ElectionType electionType, List<Choice> choices, Date startDate, Date endDate){
         Election e = null;
 
