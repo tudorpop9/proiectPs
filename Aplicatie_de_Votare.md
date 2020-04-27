@@ -71,4 +71,11 @@ Momentan aplicatia contine suport pentru trimiterea unui e-mail la toti userii c
 
 Clasa "Election" suporta detinerea obiectelor ce implementeaza "ElectionObserver". In acest mod se pot crea diferite tipuri de Observeri care pot notifica populatia prin sms de exemplu. 
 
+#### Factory Desing Pattern
+Acest desing pattern este unul de tip creational aducand la dispozitie una dintre metodele cele mai bune de a crea obiecte. Ne ajuta sa pastram abstractizarea folosind polimorfismul si oferind o varietate de obiecte cu un comportament usor modificat.
+
+Pentru integrarea acestui pattern in proiect am incercat sa creez un factory pentru obiectele de timp Choice deoarece service-urile era deja implementate. Problema/dificultatea cu folosirea unui factory pentru acestea este ca subclasele sunt foarte variate fata de clasa parinte, unele avand 4-5 noi campuri.
+
+Renuntand la ideea prezentata anterior am decis sa folosesc un Factory Pattern pentru crearea tipurilor de "Alegeri" (clasa Election). Folosind tipurile de Alegeri pe care aplicatia trebuie sa le suporte am creat subclase pe baza acestora. Subclasele implementeaza o metoda de oferire a "raportului", a evidentei voturilor variantelor disponibile, fiecare avand o structura usor schimbata. 
+
  work in progress..
