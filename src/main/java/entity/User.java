@@ -7,14 +7,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@IdClass(User.class)
+//@IdClass(User.class)
 public class User implements Serializable{
 
     @Id
     private Long cnp;
 
-    @MapsId
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Person person;
 
     @Column
@@ -30,8 +30,8 @@ public class User implements Serializable{
     @Column
     private String password;
 
-    public User(Person person, RoleType role, String email, String phoneNumber, String password) {
-        cnp = person.getCnp(); //...idk
+    public User(Long cnp,Person person, RoleType role, String email, String phoneNumber, String password) {
+        this.cnp = cnp; //...idk
         this.person = person;
         this.role = role;
         this.email = email;

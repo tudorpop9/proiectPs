@@ -26,12 +26,12 @@ public class LoginController {
      * @return
      */
     @PostMapping("login/{email}/{password}")
-    public String logInMethod(@PathVariable String email, @PathVariable String password){
+    public User logInMethod(@PathVariable String email, @PathVariable String password) throws Exception {
         User user = userService.getUserByEmail(email);
         if(user != null && user.getPassword().equals(password)){
-            return user.getRole().toString();
+            return user;
         }
-        return "fail";
+        return null;
     }
 
     /**
@@ -41,12 +41,12 @@ public class LoginController {
      * @return
      */
     @PostMapping("login/{cnp}")
-    public Long beginVoteProcess(@PathVariable Long cnp){
+    public Person beginVoteProcess(@PathVariable Long cnp) throws Exception {
         Person person = personService.getPerson(cnp);
         if(person != null){
-            return cnp;
+            return person;
         }
-        return -1L;
+        return null;
     }
 
 }

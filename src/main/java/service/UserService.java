@@ -3,6 +3,7 @@ package service;
 import entity.Person;
 import entity.User;
 import enums.RoleType;
+import exception.RowAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.PersonRepo;
@@ -58,7 +59,7 @@ public class UserService {
      * @param pwd
      * @param phoneNr
      */
-    public void upgradeToMember(Person pers ,String email, String pwd, String phoneNr){
+    public void upgradeToMember(Person pers ,String email, String pwd, String phoneNr) throws RowAlreadyExistsException {
         User usr = new User();
         if(email.matches( emailRegex)){
             usr.setEmail(email);
@@ -77,14 +78,12 @@ public class UserService {
         }else{
             //throw
         }
-        usr.setRole(RoleType.MEMBER);
-        usr.setCnp(pers.getCnp());
-        usr.setPerson(pers);
 
-        if(!userRepo.existsByCnp(usr.getCnp())){
-            //throw
+        if(userRepo.existsByCnp(pers.getCnp())){
+            throw new RowAlreadyExistsException("User already exists");
         }
-        userRepo.save(usr);
+        User user = new User(pers.getCnp(), pers, RoleType.MEMBER,email,phoneNr, pwd);
+        userRepo.save(user);
     }
 
     /**

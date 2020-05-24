@@ -3,6 +3,7 @@ package controller;
 import entity.Choice;
 import entity.Person;
 import entity.User;
+import exception.RowAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -48,7 +49,7 @@ public class CitizenControllor {
      * @param phoneNr
      */
     @PostMapping("/citizen/makeAccount/{cnp}/{mail}/{pwd}/{phoneNr}")
-    public void makeAccount(@PathVariable Long cnp, @PathVariable String mail, @PathVariable String pwd, @PathVariable String phoneNr){
+    public void makeAccount(@PathVariable Long cnp, @PathVariable String mail, @PathVariable String pwd, @PathVariable String phoneNr) throws RowAlreadyExistsException {
         Person person =  personService.getPerson(cnp);
         userService.upgradeToMember(person,mail,pwd,phoneNr);
     }
