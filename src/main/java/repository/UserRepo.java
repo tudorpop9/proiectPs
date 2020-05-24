@@ -12,7 +12,7 @@ public interface UserRepo extends JpaRepository<User, Long> {
     public Boolean existsByCnp(Long cnp);
     //public Boolean existsByPerson_cnp(Long cnp);
 
-   // public User findByPerson_cnp(Long cnp);
+    public User findByPerson_cnp(Long cnp);
     public User findByCnp(Long cnp);
     public User findByEmail(String email);
     public User findByphoneNumber(String email);

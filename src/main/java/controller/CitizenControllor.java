@@ -49,8 +49,8 @@ public class CitizenControllor {
      */
     @PostMapping("/citizen/makeAccount/{cnp}/{mail}/{pwd}/{phoneNr}")
     public void makeAccount(@PathVariable Long cnp, @PathVariable String mail, @PathVariable String pwd, @PathVariable String phoneNr){
-        User user =  userService.getUserByCnp(cnp);
-        userService.upgradeToMember(user,mail,pwd,phoneNr);
+        Person person =  personService.getPerson(cnp);
+        userService.upgradeToMember(person,mail,pwd,phoneNr);
     }
 
 

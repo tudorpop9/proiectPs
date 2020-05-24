@@ -21,16 +21,17 @@ public class User implements Serializable{
     @Enumerated(value = EnumType.STRING)
     private RoleType role;
 
-    @Column
+    @Column(unique = true, length = 128)
     private String email;
 
-    @Column
+    @Column(length = 50)
     private String phoneNumber;
 
     @Column
     private String password;
 
     public User(Person person, RoleType role, String email, String phoneNumber, String password) {
+        cnp = person.getCnp(); //...idk
         this.person = person;
         this.role = role;
         this.email = email;

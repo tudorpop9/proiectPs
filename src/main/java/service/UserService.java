@@ -53,13 +53,13 @@ public class UserService {
 
     /**
      * A citizen becomes a member by adding an e-mail, a password, a phone number
-     * @param usr
+     * @param pers
      * @param email
      * @param pwd
      * @param phoneNr
      */
-    public void upgradeToMember(User usr ,String email, String pwd, String phoneNr){
-
+    public void upgradeToMember(Person pers ,String email, String pwd, String phoneNr){
+        User usr = new User();
         if(email.matches( emailRegex)){
             usr.setEmail(email);
         }else{
@@ -78,6 +78,8 @@ public class UserService {
             //throw
         }
         usr.setRole(RoleType.MEMBER);
+        usr.setCnp(pers.getCnp());
+        usr.setPerson(pers);
 
         if(!userRepo.existsByCnp(usr.getCnp())){
             //throw
