@@ -66,7 +66,7 @@ public class AdminController {
     }
 
     @PostMapping("admin/party/addPerson/{partyAcronym}/{personCnp}")
-    public void addPersonToParty(@PathVariable String partyAcronym, @PathVariable Long personCnp){
+    public void addPersonToParty(@PathVariable String partyAcronym, @PathVariable Long personCnp) throws PersonRequirementsException {
         Person p = personService.getPerson(personCnp);
         Party party = partyService.getParty(partyAcronym);
         partyService.addPerson(p, party);

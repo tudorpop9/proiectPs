@@ -2,6 +2,7 @@ package service;
 
 import entity.Party;
 import entity.Person;
+import exception.PersonRequirementsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.PartyRepo;
@@ -67,15 +68,18 @@ public class PartyService {
 
     /**
      * Assigns a person to a party
+     * Also saves changes to both tables Person and Party :)
      * @param person
      * @param party
      */
-    public void addPerson(Person person, Party party){
+    public void addPerson(Person person, Party party) throws PersonRequirementsException {
         if(person.getParty() == null && person.getAge() >= 18){
             party.addMembers(person);
             person.setParty(party);
             personRepo.save(person);
             partyRepo.save(party);
+        }else{
+            throw new PersonRequirementsException("Person must not be in a political party already, and should be over 18 years old");
         }
 
     }
