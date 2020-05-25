@@ -1,6 +1,7 @@
 package service;
 
 import entity.Person;
+import exception.RowAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.PersonRepo;
@@ -36,7 +37,10 @@ public class PersonService {
      * Adds a new person to the db
      * @param person
      */
-    public void addPerson(Person person){
+    public void addPerson(Person person) throws RowAlreadyExistsException {
+        if(personRepo.existsByCnp(person.getCnp())){
+            throw new RowAlreadyExistsException("Person already exists in db");
+        }
         personRepo.save(person);
     }
 

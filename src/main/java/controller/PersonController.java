@@ -1,6 +1,7 @@
 package controller;
 
 import entity.Person;
+import exception.RowAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import service.PersonService;
@@ -27,12 +28,12 @@ public class PersonController {
     }
 
     @PostMapping("/addPerson")
-    public void addPerson(@RequestBody Person person){
+    public void addPerson(@RequestBody Person person) throws RowAlreadyExistsException {
         personService.addPerson(person);
     }
 
     @PostMapping("/addPeople")
-    public void addPeople(@RequestBody Person[] people){
+    public void addPeople(@RequestBody Person[] people) throws RowAlreadyExistsException {
         for(Person p : people)
             personService.addPerson(p);
     }

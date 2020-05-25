@@ -43,7 +43,7 @@ public class AdminController {
         electionService.registerAVote(electionTitle, p, c);
     }
 
-    @PostMapping("/admin/election/createElection/{electionTitle}/{type}/{choiceList}/{start}/{date}")
+    @PostMapping("/admin/election/createElection/{electionTitle}/{type}/{choiceList}/{startDate}/{dateEnd}")
     public void createElection(@PathVariable String title,@PathVariable ElectionType electionType,@PathVariable List<Choice> choices,@PathVariable Date startDate,@PathVariable Date endDate){
         electionService.addElection(title, electionType, choices, startDate, endDate);
     }
@@ -66,7 +66,7 @@ public class AdminController {
     }
 
     @PostMapping("admin/party/addPerson/{partyAcronym}/{personCnp}")
-    public void addPerson(@PathVariable String partyAcronym, @PathVariable Long personCnp){
+    public void addPersonToParty(@PathVariable String partyAcronym, @PathVariable Long personCnp){
         Person p = personService.getPerson(personCnp);
         Party party = partyService.getParty(partyAcronym);
         partyService.addPerson(p, party);
@@ -91,7 +91,7 @@ public class AdminController {
 
     //CandidateChoice
     @PostMapping("admin/Choice/CandidateChoice/add")
-    public void createCandidateChoice(@RequestBody CandidateChoice candidateChoice){
+    public void CandidateChoice(@RequestBody CandidateChoice candidateChoice){
         try {
             candidateChoiceService.addCandidateChoice(candidateChoice);
         } catch (PersonRequirementsException e) {
@@ -101,13 +101,13 @@ public class AdminController {
 
     //ParlimentalChoice
     @PostMapping("admin/Choice/ParlimentalChoice/add")
-    public void createCandidateChoice(@RequestBody ParlimentalChoice parlimentalChoice){
+    public void ParlimentalChoice(@RequestBody ParlimentalChoice parlimentalChoice){
         parlimentalChoiceService.addParlimentalChoice(parlimentalChoice);
     }
 
     //PollChoice
     @PostMapping("admin/Choice/PollChoice/add")
-    public void createCandidateChoice(@RequestBody PollChoice pollChoice){
+    public void PollChoice(@RequestBody PollChoice pollChoice){
         pollChoiceService.addPollChoice(pollChoice);
     }
 
